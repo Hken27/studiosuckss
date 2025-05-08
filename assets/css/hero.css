@@ -19,11 +19,32 @@ header {
     align-items: center;
     padding: 20px 40px;
     border-bottom: 1px solid #ccc;
+    position: relative;
 }
 
 .logo-img {
     height: 55px;
     width: auto;
+}
+
+
+/* Hamburger Menu (Hidden on Desktop) */
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #000;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
 .main-nav {
@@ -33,6 +54,7 @@ header {
     align-items: center;
     margin-left: 40px;
     flex-wrap: wrap;
+    transition: all 0.4s ease;
 }
 
 .left-nav,
@@ -47,11 +69,28 @@ nav a {
     text-decoration: none;
     color: #000;
     font-size: 14px;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
 nav a:hover {
-    color: #888;
+    color: #555;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #555;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 .hero {
@@ -76,7 +115,7 @@ nav a:hover {
 
 .hero .intro {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2.5fr 2fr;
     /* 2 kolom */
     gap: 40px;
     text-align: left;
@@ -100,23 +139,48 @@ nav a:hover {
     transform: scale(1.03);
 }
 
+
+/* Mobile Styles */
+
 @media screen and (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+    }
+    .hamburger {
+        display: block;
+        order: 1;
+    }
+    .logo {
+        order: 0;
     }
     .main-nav {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-left: 0;
-        margin-top: 20px;
+        width: 100%;
+        margin: 20px 0 0 0;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+    }
+    .main-nav.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
     .left-nav,
     .center-nav,
     .right-nav {
         flex-direction: column;
         gap: 10px;
+        width: 100%;
     }
     .hero h1 {
         font-size: 48px;
@@ -125,8 +189,21 @@ nav a:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 15px;
     }
     .gallery {
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 15px 20px;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero .center-img img {
+        max-width: 80px;
     }
 }
