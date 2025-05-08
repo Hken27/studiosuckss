@@ -47,3 +47,35 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
 });
+
+// Auto-slide hanya di mobile/tablet
+function initSlideshow() {
+    const gallery = document.querySelector('.gallery');
+    const images = gallery.querySelectorAll('img');
+    let currentIndex = 0;
+    let slideInterval;
+
+    function startSlideshow() {
+        if (window.innerWidth >= 1024) return; // Stop di desktop
+
+        slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            gallery.scrollTo({
+                left: currentIndex * window.innerWidth,
+                behavior: 'smooth'
+            });
+        }, 1500); // 1.5 detik per slide (bisa diubah ke 500ms jika diinginkan)
+    }
+
+    // Responsive control
+    window.addEventListener('resize', () => {
+        clearInterval(slideInterval);
+        if (window.innerWidth < 1024) startSlideshow();
+    });
+
+    // Init
+    if (window.innerWidth < 1024) startSlideshow();
+}
+
+// Jalankan saat halaman dimuat
+document.addEventListener('DOMContentLoaded', initSlideshow);
