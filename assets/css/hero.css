@@ -1,4 +1,4 @@
-/* Base Styles */
+/* style.css */
 
 * {
     margin: 0;
@@ -7,270 +7,126 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #222;
-    background: #f9f9f9;
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #000;
+    background: #fff;
 }
-
-
-/* Header & Navigation */
 
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+    border-bottom: 1px solid #ccc;
 }
 
 .logo-img {
     height: 55px;
     width: auto;
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
 }
 
 .main-nav {
     display: flex;
+    flex: 1;
     justify-content: space-between;
     align-items: center;
     margin-left: 40px;
-    flex: 1;
-    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    flex-wrap: wrap;
 }
 
 .left-nav,
 .center-nav,
 .right-nav {
     display: flex;
-    gap: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.nav-link {
+nav a {
     text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding: 5px 0;
-    transition: all 0.3s ease;
-}
-
-.nav-link:hover {
     color: #000;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #909090;
-    transition: width 0.3s ease;
+nav a:hover {
+    color: #888;
 }
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-
-/* Hamburger Menu */
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 10px;
-    z-index: 1001;
-}
-
-.hamburger span {
-    display: block;
-    width: 28px;
-    height: 2px;
-    background: #333;
-    margin: 6px 0;
-    transition: all 0.3s ease;
-}
-
-
-/* Hero Section */
 
 .hero {
-    padding: 180px 40px 80px;
+    padding: 60px 40px;
     text-align: center;
-    background: linear-gradient(135deg, #fff 0%, #fff 100%);
 }
 
-.hero-title {
-    font-size: 5.5rem;
-    font-weight: 900;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+.hero h1 {
+    font-family: 'Inter', sans-serif;
+    /* Font minimalis */
+    font-size: clamp(90px, 16vw, 160px);
+    /* Diperbesar dari 80px */
+    font-weight: 300;
+    /* Tipis untuk kesan minimalis (bukan 900) */
     margin-bottom: 40px;
-    letter-spacing: -3px;
-    color: #222;
-    animation: fadeInUp 1s ease;
+    letter-spacing: -4px;
+    /* Lebih rapat */
+    line-height: 0.9;
+    /* Untuk kompensasi ukuran besar */
 }
 
-.intro {
-    display: flex;
-    justify-content: space-around;
-    max-width: 1000px;
-    margin: 0 auto 60px;
-    gap: 30px;
+.hero .intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* 2 kolom */
+    gap: 40px;
+    text-align: left;
 }
-
-.intro-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    flex: 1;
-    animation: fadeIn 1.2s ease 0.3s both;
-}
-
-.hero-image {
-    max-width: 120px;
-    margin: 0 auto;
-    display: block;
-    padding-bottom: 40px;
-    filter: grayscale(30%);
-    transition: all 0.5s ease;
-}
-
-.hero-image:hover {
-    filter: grayscale(0);
-    transform: rotate(5deg);
-}
-
-
-/* Gallery */
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px 40px 60px;
 }
 
-.gallery-img {
+.gallery img {
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
-    border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s;
 }
 
-.gallery-img:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    z-index: 10;
+.gallery img:hover {
+    transform: scale(1.03);
 }
 
-
-/* Animations */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Mobile Responsiveness */
-
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-}
-
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     header {
-        padding: 15px 20px;
-    }
-    .hamburger {
-        display: block;
-    }
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+        flex-direction: column;
+        align-items: flex-start;
     }
     .main-nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #fff;
         flex-direction: column;
-        gap: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-150%);
-    }
-    .main-nav.active {
-        transform: translateY(0);
+        align-items: flex-start;
+        gap: 10px;
+        margin-left: 0;
+        margin-top: 20px;
     }
     .left-nav,
     .center-nav,
     .right-nav {
         flex-direction: column;
-        gap: 15px;
-        width: 100%;
+        gap: 10px;
     }
-    .hero {
-        padding: 120px 20px 60px;
+    .hero h1 {
+        font-size: 48px;
     }
-    .hero-title {
-        font-size: 3rem;
-        letter-spacing: -1px;
-    }
-    .intro {
+    .hero .intro {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        text-align: center;
     }
     .gallery {
         grid-template-columns: 1fr;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    .hero-image {
-        max-width: 80px;
     }
 }
