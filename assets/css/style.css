@@ -6,8 +6,12 @@ html {
     color: #fff;
 }
 
+.char.crumpled {
+    animation: crumple 1s ease-out forwards;
+}
 
-/* PRELOADER STUDIO SUCKSS */
+
+/* === PRELOADER === */
 
 #preloader {
     position: fixed;
@@ -27,17 +31,16 @@ html {
 #preloader .char {
     display: inline-block;
     font-size: 6rem;
-    /* Ukuran diperbesar */
     font-weight: 700;
     opacity: 0;
     transform: translateY(-200px) scale(1.5);
     color: #fff;
     letter-spacing: 0.05em;
-    margin: 0 2px;
+    margin: 0 5px;
 }
 
 
-/* Delay animasi jatuh */
+/* === ANIMASI DELAY === */
 
 #preloader .char:nth-child(1) {
     animation-delay: 0.1s;
@@ -91,22 +94,16 @@ html {
     animation-delay: 1.3s;
 }
 
-
-/* Sembunyikan preloader setelah animasi selesai */
-
 #preloader.hidden {
     display: none;
 }
-
-
-/* Setelah huruf terbentuk, scale-up seluruh preloader */
 
 #preloader.scale-up {
     animation: scaleUp 0.8s ease-in-out forwards;
 }
 
 
-/* Animasi drop */
+/* === ANIMATIONS === */
 
 @keyframes dropIn {
     to {
@@ -124,9 +121,6 @@ html {
     }
 }
 
-
-/* Animasi untuk kertas yang diremas */
-
 @keyframes crumple {
     0% {
         opacity: 1;
@@ -142,106 +136,37 @@ html {
     }
 }
 
-.char.crumpled {
-    animation: crumple 1s ease-out forwards;
-}
 
+/* === RESPONSIVE MEDIA QUERIES === */
 
-/* === HERO SECTION === */
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5vh 10vw;
-    background: #000;
-    color: #fff;
-    height: 100vh;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 2rem;
-}
-
-.hero-left h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.hero-left h1 span {
-    color: #ccc;
-}
-
-.hero-left p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    max-width: 400px;
-}
-
-.stats {
-    display: flex;
-    gap: 3rem;
-    margin-bottom: 2rem;
-}
-
-.stats div {
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.stats strong {
-    font-size: 2rem;
-    color: #fff;
-}
-
-.cta-btn {
-    padding: 0.8rem 2rem;
-    background: #fff;
-    color: #000;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.hero-right {
-    text-align: center;
-}
-
-.hero-visual {
-    width: 100%;
-    max-width: 400px;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
+@media (max-width: 1024px) {
+    #preloader {
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    50% {
-        transform: translateY(-20px);
+    /* Tambahkan baris baru sebelum huruf ke-7 ("s" pada "suckss") */
+    #preloader .char:nth-child(7)::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1rem;
+        /* Jarak antar baris */
     }
-    100% {
-        transform: translateY(0px);
+    #preloader .char {
+        font-size: 3rem;
+        /* Bisa diubah sesuai kebutuhan responsif */
+        margin: 0 4px;
     }
 }
 
-.clients {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+@media (max-width: 768px) {
+    #preloader .char {
+        font-size: 3rem;
+    }
 }
 
-.clients img {
-    height: 30px;
-    opacity: 0.7;
-    filter: grayscale(100%);
+@media (max-width: 480px) {
+    #preloader .char {
+        font-size: 2.5rem;
+    }
 }

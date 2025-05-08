@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
     const chars = preloader.querySelectorAll('.char');
-    const hero = document.querySelector('.hero');
 
     // Step 1: Drop-in (jatuh dari atas) satu per satu
     gsap.to(chars, {
@@ -52,23 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, 4500);
-
-    // Fade in left and right sides (optional)
-    setTimeout(() => {
-        gsap.from(".left-side", {
-            x: -100,
-            opacity: 1,
-            duration: 3,
-            ease: "power2.out"
-        });
-
-        gsap.from(".right-side", {
-            x: 100,
-            opacity: 1,
-            duration: 5,
-            ease: "power2.out"
-        });
-    }, 4700);
 
 });
 
