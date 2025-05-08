@@ -1,0 +1,247 @@
+/* === GLOBAL RESET & FONT === */
+
+html {
+    font-family: system-ui, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* PRELOADER STUDIO SUCKSS */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+#preloader .char {
+    display: inline-block;
+    font-size: 6rem;
+    /* Ukuran diperbesar */
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(-200px) scale(1.5);
+    color: #fff;
+    letter-spacing: 0.05em;
+    margin: 0 2px;
+}
+
+
+/* Delay animasi jatuh */
+
+#preloader .char:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+#preloader .char:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#preloader .char:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+#preloader .char:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+#preloader .char:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+#preloader .char:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+#preloader .char:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+#preloader .char:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+#preloader .char:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+#preloader .char:nth-child(10) {
+    animation-delay: 1.0s;
+}
+
+#preloader .char:nth-child(11) {
+    animation-delay: 1.1s;
+}
+
+#preloader .char:nth-child(12) {
+    animation-delay: 1.2s;
+}
+
+#preloader .char:nth-child(13) {
+    animation-delay: 1.3s;
+}
+
+
+/* Sembunyikan preloader setelah animasi selesai */
+
+#preloader.hidden {
+    display: none;
+}
+
+
+/* Setelah huruf terbentuk, scale-up seluruh preloader */
+
+#preloader.scale-up {
+    animation: scaleUp 0.8s ease-in-out forwards;
+}
+
+
+/* Animasi drop */
+
+@keyframes dropIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+
+/* Animasi untuk kertas yang diremas */
+
+@keyframes crumple {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.6) rotate(30deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) rotate(180deg);
+    }
+}
+
+.char.crumpled {
+    animation: crumple 1s ease-out forwards;
+}
+
+
+/* === HERO SECTION === */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5vh 10vw;
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-left h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-left h1 span {
+    color: #ccc;
+}
+
+.hero-left p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+}
+
+.stats {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.stats div {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.stats strong {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.cta-btn {
+    padding: 0.8rem 2rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hero-right {
+    text-align: center;
+}
+
+.hero-visual {
+    width: 100%;
+    max-width: 400px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.clients {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.clients img {
+    height: 30px;
+    opacity: 0.7;
+    filter: grayscale(100%);
+}
