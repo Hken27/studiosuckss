@@ -4,38 +4,45 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: #000;
-    /* Background tetap hitam */
     color: #fff;
+    overflow-x: hidden;
 }
 
 
-/* Animasi untuk latar belakang hitam */
+/* Services section */
 
 .services {
     background: #000;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 40px 20px;
-    z-index: 10;
+    padding: 60px 40px;
     position: relative;
-    overflow: hidden;
-    animation: fadeInBackground 3s ease-out 2s forwards;
     min-height: 100vh;
-    /* Agar container mengambil seluruh tinggi layar */
 }
 
 
 /* Title */
 
 .services-title {
-    text-align: center;
+    text-align: left;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #fff;
-    position: relative;
+    position: sticky;
+    top: 0;
+    /* Jarak dari atas viewport */
+    z-index: 100;
+    /* Pastikan judul di atas elemen lain */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Latar belakang semi-transparan */
+    padding: 20px 0;
+    /* Ruang tambahan */
+    backdrop-filter: blur(5px);
+    /* Efek blur modern */
+    transition: all 0.3s ease;
 }
 
 
@@ -48,6 +55,8 @@ body {
     justify-items: center;
     padding: 40px 20px;
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -59,51 +68,12 @@ body {
     text-align: center;
     width: 100%;
     max-width: 320px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-/* Animasi background hitam (menunggu animasi blob selesai) */
-
-@keyframes fadeInBackground {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.service-box:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.service-box:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.service-box:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.service-box:nth-child(4) {
-    animation-delay: 0.8s;
-}
-
-.service-box:nth-child(5) {
-    animation-delay: 1.0s;
-}
-
-.service-box:nth-child(6) {
-    animation-delay: 1.2s;
-}
-
-.service-box:nth-child(7) {
-    animation-delay: 1.4s;
-}
-
-.service-box:nth-child(8) {
-    animation-delay: 1.6s;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: rgba(15, 15, 15, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -111,7 +81,6 @@ body {
 
 .service-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -123,6 +92,8 @@ body {
     color: #fff;
     margin-bottom: 15px;
     text-transform: uppercase;
+    position: relative;
+    z-index: 2;
 }
 
 .service-box h4 {
@@ -130,12 +101,16 @@ body {
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .service-box p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #e0e0e0;
+    color: #fff;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -147,7 +122,6 @@ body {
     left: 50%;
     width: 220px;
     height: 220px;
-    /* background-color: white; */
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     transform: translate(-50%, -50%);
@@ -179,6 +153,81 @@ body {
     opacity: 0.8;
 }
 
-.service-box:hover .image-popup img {
-    transform: scale(1.05);
+
+/* Paint Blob Animations */
+
+.paint-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0;
+    z-index: 0;
+    animation: blobFade 8s ease-in-out infinite;
+}
+
+@keyframes blobFade {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.15;
+        transform: scale(1.2);
+    }
+}
+
+
+/* Specific blob positions and colors */
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(100, 200, 255, 0.1);
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 100, 200, 0.1);
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: rgba(200, 255, 100, 0.1);
+    top: 40%;
+    right: 15%;
+    animation-delay: 4s;
+    animation-duration: 12s;
+}
+
+.service-blob {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0;
+    z-index: 0;
+    animation: serviceBlob 6s ease-in-out infinite;
+}
+
+@keyframes serviceBlob {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 0.1;
+        transform: scale(1.1);
+    }
 }
