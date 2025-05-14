@@ -173,7 +173,7 @@ html {
 
 @media (max-width: 768px) {
     #preloader .char {
-        font-size: 4rem;
+        font-size: 3.3rem;
         margin: 0 3px;
     }
     #preloader {
