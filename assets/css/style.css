@@ -1,5 +1,13 @@
 /* === GLOBAL RESET & FONT === */
 
+
+/* 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+} */
+
 html {
     font-family: system-ui, sans-serif;
     background-color: #000;
@@ -139,34 +147,58 @@ html {
 
 /* === RESPONSIVE MEDIA QUERIES === */
 
+
+/* Tablet */
+
 @media (max-width: 1024px) {
     #preloader {
         flex-wrap: wrap;
         justify-content: center;
     }
-    /* Tambahkan baris baru sebelum huruf ke-7 ("s" pada "suckss") */
-    #preloader .char:nth-child(7)::before {
+    /* Tambahkan baris baru sebelum huruf ke-7 */
+    /* #preloader .char:nth-child(7)::before {
         content: "";
         display: block;
         width: 100%;
-        height: 1rem;
-        /* Jarak antar baris */
-    }
+        height: 1.2rem;
+    } */
     #preloader .char {
-        font-size: 3rem;
-        /* Bisa diubah sesuai kebutuhan responsif */
+        font-size: 4rem;
         margin: 0 4px;
     }
 }
 
+
+/* Tablet kecil dan phablet */
+
 @media (max-width: 768px) {
     #preloader .char {
         font-size: 3rem;
+        margin: 0 3px;
     }
+    /* #preloader .char:nth-child(7)::content {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1rem;
+    } */
 }
 
+
+/* Smartphone Android & iPhone */
+
 @media (max-width: 480px) {
-    #preloader .char {
-        font-size: 2.5rem;
+    #preloader {
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
     }
+    #preloader .char {
+        font-size: 2.2rem;
+        margin: 0 2px;
+        letter-spacing: 0.02em;
+    }
+    /* #preloader .char:nth-child(7)::before {
+        height: 0.8rem;
+    } */
 }

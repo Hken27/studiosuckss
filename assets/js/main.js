@@ -57,4 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // navigasi ke hero
 setTimeout(function() {
     window.location.href = "hero.html";
-}, 3000); // 3000 milidetik = 3 detik
+}, 6000);
