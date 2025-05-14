@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #000;
+    background: #fff;
     color: #fff;
     overflow-x: hidden;
 }
@@ -12,7 +12,7 @@ body {
 /* Services section */
 
 .services {
-    background: #000;
+    background: #fff;
     max-width: 1440px;
     margin: 0 auto;
     padding: 60px 40px;
@@ -30,14 +30,12 @@ body {
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #fff;
+    color: #000;
     position: sticky;
     top: 0;
     /* Jarak dari atas viewport */
     z-index: 100;
     /* Pastikan judul di atas elemen lain */
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Latar belakang semi-transparan */
     padding: 20px 0;
     /* Ruang tambahan */
     backdrop-filter: blur(5px);
@@ -73,7 +71,7 @@ body {
     overflow: hidden;
     background: rgba(15, 15, 15, 0.5);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(17, 15, 15, 0.1);
 }
 
 
