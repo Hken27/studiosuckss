@@ -176,10 +176,6 @@ html {
         font-size: 3rem;
         margin: 0 3px;
     }
-    #preloader {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     /* #preloader .char:nth-child(7)::content {
         content: "";
         display: block;
